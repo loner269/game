@@ -186,13 +186,15 @@ function resetGame() {
 if (localStorage.getItem('theme') == 'dark') {
     document.body.classList.add('dark')
 };
-function hourToggle(){
-let date = new Date();
-let hour = date.getHours();
-if (hour >= 18 && hour < 8) {
-    document.body.classList.add('dark');
-}
+function hourToggle() {
+    let date = new Date();
+    let hour = date.getHours();
+    if (hour >= 18 || hour < 8) {
+        document.body.classList.add('dark');
+    }
 };
-window.addEventListener('DOMContentLoaded', function() {
-hourToggle();
+window.addEventListener('click', function () {
+    console.log('window clicked')
+    hourToggle();
 });
+hourToggle();
