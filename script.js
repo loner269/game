@@ -7,7 +7,7 @@ for (let i = 0; i < select.length; i++) {
     select[i].addEventListener('click', function (event) {
         event.preventDefault();
         document.getElementById('guessInput').value = select[i].innerText;
-         let selection = document.getElementsByName('number');
+        let selection = document.getElementsByName('number');
         for (let i = 0; i < selection.length; i++) {
             selection[i].checked = false;
         }
@@ -61,7 +61,7 @@ function showAlert(message, color, amount) {
             }, 1000);
         }
     }
-    
+
     setTimeout(() => {
         alertBox.style.display = 'none';
         document.getElementById('resultInput').value = '';
@@ -178,16 +178,21 @@ function resetGame() {
     document.getElementById('stakeInput').value = 50;
     document.getElementById('guessInput').value = '';
     document.getElementById('resultInput').value = '';
-}
-if(localStorage.getItem('theme') == 'dark'){
-    document.body.classList.add('dark')
-}else{
-    document.body.classList.remove('dark')
-};
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
-    if (e.matches) {
-        document.body.classList.add('dark');
-    } else {
-        document.body.classList.remove('dark');
+    let selection = document.getElementsByName('number');
+    for (let i = 0; i < selection.length; i++) {
+        selection[i].checked = false;
     }
+}
+if (localStorage.getItem('theme') == 'dark') {
+    document.body.classList.add('dark')
+};
+function hourToggle(){
+let date = new Date();
+let hour = date.getHours();
+if (hour >= 18 && hour < 8) {
+    document.body.classList.add('dark');
+}
+};
+window.addEventListener('DOMContentLoaded', function() {
+hourToggle();
 });
