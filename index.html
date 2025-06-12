@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Game</title>
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -44,54 +45,53 @@
 
         <div class="section-left">
            <div class="up">
-             <div class="odd-even">
-               <div>
-                  <input type="radio" name="number" id="odd" value="odd">
-                  <label for="odd">Odd @1.75</label>
-               </div>
-               <div>
+              <div class="odd-even">
+                 <div>
+                    <input type="radio" name="number" id="odd" value="odd">
+                    <label for="odd">Odd @1.75</label>
+                 </div>
+                 <div>
                    <input type="radio" name="number" id="even" value="even">
                    <label for="even">Even @1.75</label>
-               </div>
-             </div>
-             <div class="range">
-                <div>
+                 </div>
+              </div>
+              <div class="range">
+                 <div>
                     <input type="radio" name="number" id="1-10" value="1-10">
-                   <label for="1-10">1-10 @2.50</label>
-                </div>
-                <div>
+                    <label for="1-10">1-10 @2.50</label>
+                 </div>
+                 <div>
                     <input type="radio" name="number" id="11-20" value="11-20">
                     <label for="11-20">11-20 @2.50</label>
-                </div>
-                <div>
+                 </div>
+                 <div>
                     <input type="radio" name="number" id="21-30" value="21-30">
-                   <label for="21-30">21-30 @2.50</label>
-                </div>
-                <div>
+                    <label for="21-30">21-30 @2.50</label>
+                 </div>
+                 <div>
                     <input type="radio" name="number" id="31-40" value="31-40">
-                   <label for="31-40">31-40 @2.50</label>
-                </div>
-                <div>
+                    <label for="31-40">31-40 @2.50</label>
+                 </div>
+                 <div>
                     <input type="radio" name="number" id="41-50" value="41-50">
                     <label for="41-50">41-50 @2.50</label>
-                </div>
-                </div>
+                 </div>
+              </div>
            </div>
-           </div>
+
            <div class="down">
-             <div class="exact">
+               <div class="exact">
                 <h4>Pick:1 - 50 @6.00</h2>
-            </div>
-           
-           </div>
-        </div>
-        <div class="section-right">
-             <div class="rd-guess-container">
-               <div class="rd-guess">
-                 <label for="guessInput">Your Guess</label>
                </div>
-               <input type="text" id="guessInput" disabled placeholder="1-50" min="1" max="50">
-            </div>
+          </div>
+       </div>
+        <div class="section-right">
+            <div class="rd-guess-container">
+                <div class="rd-guess">
+                    <label for="guessInput">Your Guess</label>
+                </div>
+                <input type="text" id="guessInput" disabled placeholder="1-50" min="1" max="50">
+           </div>
             <div class="stake-container">
                 <h3>Stake</h3>
                 <div>
@@ -109,7 +109,6 @@
                 </div>
             </div>
             <div>
-
                 <input type="button" id="reset" value="Reset Game" onclick="resetGame()">
             </div>
         </div>

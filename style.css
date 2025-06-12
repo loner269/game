@@ -277,42 +277,67 @@ section div{
         z-index: 1;   
     }
     header h1{
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
 .balance-container label {
-    font-size: 1.2rem;
+    font-size: 0.8rem;
 }
 .balance{
-    font-size: 0.9rem;
+    font-size: 0.5rem;
     padding: 0.4rem auto;
-    width: 90px;
+    width: 70px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 main{
     padding: 10px;
     padding-top: 20px;
+}.welcome h1{
+    font-size: large;
+}
+.welcome h3{
+    font-size: medium;
 }
 .result-container {
      margin-top: 10px;
      width: 100%;
-     grid-template-columns: repeat(auto-fit, minmax(45px,1fr));
+     grid-template-columns: repeat(auto-fit, minmax(25px,1fr));
      gap: 5px;
     }
+.result-container p{
+    width: 25px;
+    height: 25px;
+    font-size: small;
+    font-weight: bolder;
+}
 section {
     padding: 20px 2px;
+    flex-direction:row;
     justify-content: space-between;
 }
-
+section label{
+    font-size: small;
+}
+section div{
+    margin-bottom: 7px;
+}
 .section-right{
     width: 100%;
 }
 .section-left{
-    padding:20px 0px ;
+    padding:20px 0px;
 }
 .up{
     display: flex;
     flex-direction: column;
-    width: 140px;
+    width: 100px;
+}
+.odd-even{
+    padding: 5px;
+    padding-bottom: 0;
+}
+.range{
+    padding: 5px;
+    padding-bottom: 0;
 }
 .down{
     width: 120px;
@@ -324,7 +349,7 @@ section {
     width: 80px;
 }
 .stake-container{
-   padding: 10px;
+   padding: 5px;
 }
 
 }
