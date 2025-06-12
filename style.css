@@ -275,6 +275,7 @@ section div{
         top: 0;
         width: 100%;
         z-index: 1;   
+        padding: 5px;
     }
     header h1{
         font-size: 1rem;
@@ -283,10 +284,13 @@ section div{
     font-size: 0.8rem;
 }
 .balance{
-    font-size: 0.5rem;
+    font-size: 0.7rem;
     padding: 0.4rem auto;
     width: 70px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.balance-container{
+    padding: 5px;
 }
 main{
     padding: 10px;
@@ -315,7 +319,7 @@ section {
     justify-content: space-between;
 }
 section label{
-    font-size: small;
+    font-size: smaller;
 }
 section div{
     margin-bottom: 7px;
@@ -340,13 +344,16 @@ section div{
     padding-bottom: 0;
 }
 .down{
-    width: 120px;
+    width: 100px;
 }
 .exact{
     margin: 3px;
 }
 #guessInput{
     width: 80px;
+}
+.amountInput{
+    margin-bottom: 5px;
 }
 .stake-container{
     min-width: 20px;
