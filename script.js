@@ -194,7 +194,6 @@ function hourToggle() {
     }
 };
 window.addEventListener('click', function () {
-    console.log('window clicked')
     hourToggle();
 });
 hourToggle();
