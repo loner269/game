@@ -349,6 +349,7 @@ section div{
 }
 .exact{
     margin: 3px;
+    font-size: medium;
 }
 #guessInput{
     width: 80px;
