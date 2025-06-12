@@ -133,8 +133,7 @@ main{
     font-weight: bold;
     background-color: var(--balance-bg);
     border: none;
-    border-radius: 5px;
-    margin-left: 5px;
+    border-radius: 5px;   
     margin-bottom: 15px;
 }
 section{
@@ -313,6 +312,8 @@ main{
     font-size: small;
     font-weight: bolder;
 }
+#resultInput{
+    margin-bottom: 2px;}
 section {
     padding: 5px 2px;
     flex-direction:row;
