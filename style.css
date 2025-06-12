@@ -315,7 +315,7 @@ main{
 #resultInput{
     margin-bottom: 2px;}
 section {
-    padding: 5px 2px;
+    padding: 2px;
     flex-direction:row;
     justify-content: space-between;
 }
