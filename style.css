@@ -72,7 +72,7 @@ main{
     background: var(--background-color);
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
-    padding: 35px;
+    padding: 25px;
     padding-bottom: 5px;
     border-bottom: 1px solid var(--text-color);
 }
@@ -140,7 +140,7 @@ main{
 section{
     background-color: var(--primary-color);
     color: var(--text-color);
-    padding: 25px;
+    padding: 10px;
     font-weight: bold;
     align-items: center;
     justify-content: space-around;
@@ -154,7 +154,7 @@ section h3{
     font-weight: bold;
 }
 section div{
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
 .section-left{
     display: flex;
@@ -349,7 +349,10 @@ section div{
     width: 80px;
 }
 .stake-container{
-   padding: 5px;
+    min-width: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   padding: 5px 0px;
 }
-
 }

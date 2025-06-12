@@ -94,15 +94,14 @@
            </div>
             <div class="stake-container">
                 <h3>Stake</h3>
+                <input type="number" id="stakeInput" placeholder="Stake" min="50" value="50">
                 <div>
-                    <input type="number" id="stakeInput" placeholder="Stake" min="50" value="50">
-                    <div>
+                    <div class="stake-buttons">
                         <input type="button" value="clear" onclick="clearStake()">
                         <button class="amountInput">+50</button>
                         <button class="amountInput">+100</button>
                         <button class="amountInput">+200</button>
                         <button class="amountInput">+500</button>
-                        <input type="button" value="reset" onclick="resetStake()">
                     </div>
                     <div id="alert"></div>
                     <button id="placeBet">Place Bet</button>
@@ -111,6 +110,7 @@
             <div>
                 <input type="button" id="reset" value="Reset Game" onclick="resetGame()">
             </div>
+            
         </div>
 
     </section>

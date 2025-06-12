@@ -43,9 +43,6 @@ addStake[3].addEventListener('click', function (event) {
     let stake = parseFloat(document.getElementById('stakeInput').value);
     document.getElementById('stakeInput').value = stake + 500;
 })
-function resetStake() {
-    document.getElementById('stakeInput').value = 50;
-}
 function clearStake() {
     document.getElementById('stakeInput').value = 0;
 }
