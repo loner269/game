@@ -314,7 +314,7 @@ main{
     font-weight: bolder;
 }
 section {
-    padding: 20px 2px;
+    padding: 5px 2px;
     flex-direction:row;
     justify-content: space-between;
 }
