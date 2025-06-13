@@ -404,5 +404,11 @@ margin-bottom: 5px;
   .pastResults button{
   padding:7px;
   font-size: 10px;
+  font-weight: bold;
+}
+.hide{
+  padding:10px;
+  font-size:10px;
+  right: 15px;
 }
 }
