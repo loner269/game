@@ -193,7 +193,7 @@ function hourToggle() {
         document.body.classList.add('dark');
     }
 };
-window.addEventListener('click', function () {
+document.addEventListener('click', function () {
     hourToggle();
 });
 hourToggle();
