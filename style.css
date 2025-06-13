@@ -339,12 +339,12 @@ font-weight: bold;
   .result-container {
     margin-top: 10px;
     width: 100%;
-    grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(25px, 1fr));
     gap: 5px;
   }
   .result-container p {
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     font-size: small;
     font-weight: bolder;
   }
