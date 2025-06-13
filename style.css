@@ -303,7 +303,7 @@ font-weight: bold;
 .show{
   display: block;
 }
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 600px) {
   header {
     position: sticky;
     top: 0;
