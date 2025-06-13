@@ -72,6 +72,15 @@ function showAlert(message, color, amount) {
         }
     }, 1000);
 }
+function showAlert2(error) {
+     document.getElementById('alert').innerText = error;
+        document.getElementById('alert').style.display = 'block';
+        document.getElementById('alert').style.color = 'red';
+        setTimeout(() => {
+            document.getElementById('alert').style.display = 'none';
+        }, 1000);
+        resetResult()
+}
 
 function play(multiplier) {
     let stake = parseFloat(document.getElementById('stakeInput').value);
@@ -90,34 +99,18 @@ betButton.addEventListener('click', function (event) {
     let guess = document.getElementById('guessInput').value;
     let result = Math.floor(Math.random() * 50) + 1;
     document.getElementById('resultInput').value = result;
+   
+    updateHistory(result);
 
     if (stake < 50) {
-        document.getElementById('alert').innerText = 'Min stake is 50!';
-        document.getElementById('alert').style.display = 'block';
-        document.getElementById('alert').style.color = 'red';
-        setTimeout(() => {
-            document.getElementById('alert').style.display = 'none';
-        }, 1000);
-        resetResult()
+       showAlert2('Minimum stake is 50!');
         return;
     }
     else if (bal < stake) {
-        document.getElementById('alert').innerText = 'Insufficient balance!';
-        document.getElementById('alert').style.display = 'block';
-        document.getElementById('alert').style.color = 'red';
-        setTimeout(() => {
-            document.getElementById('alert').style.display = 'none';
-        }, 1000);
-        resetResult();
+         showAlert2('Insufficient Balance!');
         return;
     } else if (document.getElementById('guessInput').value == '') {
-        document.getElementById('alert').innerText = 'Pick Your Guess!';
-        document.getElementById('alert').style.display = 'block';
-        document.getElementById('alert').style.color = 'red';
-        setTimeout(() => {
-            document.getElementById('alert').style.display = 'none';
-        }, 1000);
-        resetResult();
+       showAlert2('Pick Your Guess!')
         return;
     }
     else {
@@ -173,16 +166,42 @@ if (sessionStorage.getItem('balance')) {
     document.getElementById('balanceInput').value = 2000;
 }
 function resetGame() {
-    sessionStorage.removeItem('balance');
+    sessionStorage.clear();
     document.getElementById('balanceInput').value = 2000;
     document.getElementById('stakeInput').value = 50;
     document.getElementById('guessInput').value = '';
     document.getElementById('resultInput').value = '';
+    document.getElementById('pastResultsDisplay').innerHTML = 'NO HISTORY YET!!'
     let selection = document.getElementsByName('number');
     for (let i = 0; i < selection.length; i++) {
         selection[i].checked = false;
     }
 }
+function updateHistory(result) {
+    let resultHistory = JSON.parse(sessionStorage.getItem('resultHistory')) || [];
+    
+        resultHistory.unshift(result);
+      if (resultHistory.length > 50) {
+        resultHistory.pop();
+       }
+     sessionStorage.setItem('resultHistory', JSON.stringify(resultHistory));
+}
+function updateDisplay(){
+    const pastResult = document.getElementById('pastResultsDisplay');
+    let history = JSON.parse(sessionStorage.getItem('resultHistory')) ||[];
+    if(history.length===0){
+        pastResult.innerHTML = 'NO HISTORY YET!!'
+    }else{
+        pastResult.innerHTML = history.map((r, i) => {
+        return `${r}${((i + 1) % 10 === 0) ? '<br>' : ',  ' }`;
+    }).join('');
+    }
+    
+}
+function pastResults(){
+    document.getElementById('pastResultsDisplay').classList.toggle('show')
+}
+
 if (localStorage.getItem('theme') == 'dark') {
     document.body.classList.add('dark')
 };
@@ -194,6 +213,8 @@ function hourToggle() {
     }
 };
 document.addEventListener('click', function () {
+    updateDisplay()
     hourToggle();
 });
 hourToggle();
+updateDisplay()

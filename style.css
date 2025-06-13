@@ -36,6 +36,11 @@ header {
 span {
   color: var(--span-color);
 }
+.nav-down{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .balance-container {
   display: flex;
   justify-content: center;
@@ -272,6 +277,32 @@ section div {
   border: none;
   border-radius: 5px;
 }
+.pastResults button{
+padding:10px;
+background-color: var(--balance-bg);
+color: var(--text-color);
+border: none;
+border-radius: 5px;
+cursor: pointer;
+margin-bottom: 5px;
+
+}
+.hide{
+  position: absolute;
+  background-color: var(--balance-bg);
+  color: var(--text-color);
+  border-radius: 10px;
+  border: 1px solid var(--text-color);
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 1);
+  right: 20px;
+  z-index: 1;
+  padding: 30px;
+  max-width: 400px;
+  display:none;
+}
+.show{
+  display: block;
+}
 @media screen and (max-width: 600px) {
   header {
     position: sticky;
@@ -370,4 +401,8 @@ section div {
     align-items: center;
     padding: 5px;
   }
+  .pastResults button{
+  padding:7px;
+  font-size: 10px;
+}
 }

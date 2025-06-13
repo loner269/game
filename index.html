@@ -14,12 +14,16 @@
         <div>
             <h1><span>Danny_El</span> Guess</h1>
         </div>
-        
-            <div class="balance-container">
+        <div class="nav-down">
+            <div class="pastResults">
+                <button onclick="pastResults()">HISTORY</button>
+                <div id="pastResultsDisplay" class="hide"></div>
+            </div>
+             <div class="balance-container">
                 <label for="balanceInput">Bal</label>
                 <input id="balanceInput" type="number" disabled class="balance" title="Balance" value="2000">
             </div>
-
+        </div>
     </header>
     <main>
        
@@ -114,6 +118,7 @@
         </div>
 
     </section>
+    
     <script src="script.js"></script>
 </body>
 
