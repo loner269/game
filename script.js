@@ -19,78 +19,30 @@ for (let i = 0; i < selection.length; i++) {
         document.getElementById('guessInput').value = selection[i].value;
     })
 }
-function resetResult() {
-    document.getElementById('resultInput').value = '';
-}
-
-addStake[0].addEventListener('click', function (event) {
-    event.preventDefault();
-    let stake = parseFloat(document.getElementById('stakeInput').value);
-    document.getElementById('stakeInput').value = stake + 50;
-})
-addStake[1].addEventListener('click', function (event) {
-    event.preventDefault();
-    let stake = parseFloat(document.getElementById('stakeInput').value);
-    document.getElementById('stakeInput').value = stake + 100;
-})
-addStake[2].addEventListener('click', function (event) {
-    event.preventDefault();
-    let stake = parseFloat(document.getElementById('stakeInput').value);
-    document.getElementById('stakeInput').value = stake + 200;
-})
-addStake[3].addEventListener('click', function (event) {
-    event.preventDefault();
-    let stake = parseFloat(document.getElementById('stakeInput').value);
-    document.getElementById('stakeInput').value = stake + 500;
-})
-function clearStake() {
-    document.getElementById('stakeInput').value = 0;
-}
-
-function showAlert(message, color, amount) {
-    const alertBox = document.getElementById('alert1');
-    alertBox.value = message + amount;
-    alertBox.style.display = 'block';
-    alertBox.style.color = color;
-    let select = document.getElementsByTagName('p');
-    for (let i = 0; i < select.length; i++) {
-        if (select[i].innerText == document.getElementById('resultInput').value) {
-            select[i].classList.add('bg');
-            setTimeout(() => {
-                select[i].classList.remove('bg');
-            }, 1000);
-        }
+for (let i = 0; i < addStake.length; i++) {
+    let add = addStake[i].innerHTML;
+    addStake[i].addEventListener('click',function(){
+    switch (add) {
+        case "+50":
+            increase(50) ;
+            break;
+        case "+100":
+             increase(100) ; 
+            break;
+        case "+200":
+             increase(200) ;
+            break;
+        case  "+500":
+            increase(500)  ;
+            break;
+        case "All IN":
+            document.getElementById('stakeInput').value = parseFloat(document.getElementById('balanceInput').value) ;
+            break;
+        case "Clear" :
+            document.getElementById('stakeInput').value = 0;  
     }
-
-    setTimeout(() => {
-        alertBox.style.display = 'none';
-        document.getElementById('resultInput').value = '';
-        document.getElementById('guessInput').value = '';
-        let selection = document.getElementsByName('number');
-        for (let i = 0; i < selection.length; i++) {
-            selection[i].checked = false;
-        }
-    }, 1000);
+    })
 }
-function showAlert2(error) {
-     document.getElementById('alert').innerText = error;
-        document.getElementById('alert').style.display = 'block';
-        document.getElementById('alert').style.color = 'red';
-        setTimeout(() => {
-            document.getElementById('alert').style.display = 'none';
-        }, 1000);
-        resetResult()
-}
-
-function play(multiplier) {
-    let stake = parseFloat(document.getElementById('stakeInput').value);
-    let newStake = stake * multiplier;
-    let bal = parseFloat(document.getElementById('balanceInput').value);
-    document.getElementById('balanceInput').value = bal + newStake;
-    showAlert("You won! ", "green", newStake);
-    sessionStorage.setItem('balance', document.getElementById('balanceInput').value);
-}
-
 betButton.addEventListener('click', function (event) {
     event.preventDefault();
 
@@ -165,6 +117,55 @@ if (sessionStorage.getItem('balance')) {
 } else {
     document.getElementById('balanceInput').value = 2000;
 }
+function increase(adder){
+    let stake = parseFloat(document.getElementById('stakeInput').value);
+    document.getElementById('stakeInput').value = stake + adder;
+}
+function resetResult() {
+    document.getElementById('resultInput').value = '';
+}
+function showAlert(message, color, amount) {
+    const alertBox = document.getElementById('alert1');
+    alertBox.value = message + amount;
+    alertBox.style.display = 'block';
+    alertBox.style.color = color;
+    let select = document.getElementsByTagName('p');
+    for (let i = 0; i < select.length; i++) {
+        if (select[i].innerText == document.getElementById('resultInput').value) {
+            select[i].classList.add('bg');
+            setTimeout(() => {
+                select[i].classList.remove('bg');
+            }, 1000);
+        }
+    }
+
+    setTimeout(() => {
+        alertBox.style.display = 'none';
+        document.getElementById('resultInput').value = '';
+        document.getElementById('guessInput').value = '';
+        let selection = document.getElementsByName('number');
+        for (let i = 0; i < selection.length; i++) {
+            selection[i].checked = false;
+        }
+    }, 1000);
+}
+function showAlert2(error) {
+     document.getElementById('alert').innerText = error;
+        document.getElementById('alert').style.display = 'block';
+        document.getElementById('alert').style.color = 'red';
+        setTimeout(() => {
+            document.getElementById('alert').style.display = 'none';
+        }, 1000);
+        resetResult()
+}
+function play(multiplier) {
+    let stake = parseFloat(document.getElementById('stakeInput').value);
+    let newStake = stake * multiplier;
+    let bal = parseFloat(document.getElementById('balanceInput').value);
+    document.getElementById('balanceInput').value = bal + newStake;
+    showAlert("You won! ", "green", newStake);
+    sessionStorage.setItem('balance', document.getElementById('balanceInput').value);
+}
 function resetGame() {
     sessionStorage.clear();
     document.getElementById('balanceInput').value = 2000;
@@ -201,16 +202,15 @@ function updateDisplay(){
 function pastResults(){
     document.getElementById('pastResultsDisplay').classList.toggle('show')
 }
-
-if (localStorage.getItem('theme') == 'dark') {
-    document.body.classList.add('dark')
-};
 function hourToggle() {
     let date = new Date();
     let hour = date.getHours();
     if (hour >= 18 || hour < 8) {
         document.body.classList.add('dark');
     }
+};
+if (localStorage.getItem('theme') == 'dark') {
+    document.body.classList.add('dark')
 };
 document.addEventListener('click', function () {
     updateDisplay()
